@@ -14,6 +14,7 @@ namespace WebApplication1.Controllers
     [Route("api/[controller]")]
     public class BookmarkController : Controller
     {
+        //return Bookmark list
         [HttpGet("[action]")]
         public String getBookmarks()
         {
@@ -21,21 +22,18 @@ namespace WebApplication1.Controllers
      
             return JsonConvert.SerializeObject(bookmarkList);
         }
-
+        //sava bookmark to list 
         [HttpPost("[action]")]
         public String bookmarkRepo([FromBody]Bookmark bookmark)
         {
             List<Bookmark> bookmarkList = HttpContext.Session.GetObjectFromJson<List<Bookmark>>("Bookmarks");
             if (bookmarkList == null) bookmarkList = new List<Bookmark>();
-            /*else
-            {*/
-            //    bookmarkList.Add(new Bookmark { full_name = name, avatar_url = avatar, html_url = url });
+            
+            
                 bookmarkList.Add(bookmark);
                 HttpContext.Session.SetObjectAsJson("Bookmarks", bookmarkList);
-            //}
-
-
-            //this.Session["Bookmarks"] = new Bookmark { full_name = name, avatar_url = avatar, html_url = url};
+            
+                             
             return bookmark.full_name;
         }
 

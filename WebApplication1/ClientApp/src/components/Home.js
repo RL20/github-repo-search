@@ -97,24 +97,7 @@ export class Home extends React.Component {
         
 
     }
-    /*
-         getBookmarks = () => {
-        if (this.state.bookmarkList.length > 0) {
-            this.setState({
-                itemList: this.state.bookmarkList
-            });
-        } else {
-            fetch('api/Bookmark/getBookmarks')
-                .then(response => response.json())
-                .then(data => {
-                    this.setState({
-                        bookmarkList: data || [],
-                        itemList: data || []
-                    });
-            });
-        }
-
-    }*/
+    
 
     // Use the render function to return JSX component      
     render() {
@@ -155,14 +138,4 @@ export class Home extends React.Component {
         );
     }
 }
-/*export class Home extends Component {
-  static displayName = Home.name;
 
-  render () {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-      </div>
-    );
-  }
-}*/
